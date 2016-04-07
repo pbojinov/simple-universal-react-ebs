@@ -16,7 +16,7 @@
     "open": "0.0.5"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "devDependencies": {
   }
