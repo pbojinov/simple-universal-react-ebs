@@ -1,6 +1,7 @@
 {
-  "name": "Elastic-Beanstalk-Sample-App",
-  "version": "0.0.1",
+  "name": "simple-universal-react-ebs.",
+  "author": "Petar Bojinov",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "bluebird": "^3.3.4",
