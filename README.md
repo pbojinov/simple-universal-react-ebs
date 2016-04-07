@@ -41,9 +41,26 @@ http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html
 
 http://stackoverflow.com/questions/11211007/how-do-you-pass-custom-environment-variable-on-amazon-elastic-beanstalk-aws-ebs/14491294#14491294
 
+### Timeout when deploying
+
+For some apps, running `eb deploy` will timeout, so you can create a new config in your `.ebextensions` folder or use the `--timeout` command line flag.
+
+`increase-timeout.config`:
+
+```
+option_settings:
+    - namespace: aws:elasticbeanstalk:command
+      option_name: Timeout
+      value: 1800
+```
+
+or `eb deploy --timeout 1800`
+
+By the way the maximum timeout is half an hour, so 30 minutes * 60 seconds === 1800 seconds
+
 ## Some Gotchas
 
- 1. EBS wasn’t installing the `devDependencies` so I moved everything to `dependencies` in the `package.json`. This isn't correct but I couldn't figure out any other way to get it to install all the dependencies. I verified this was happening by sshing into the box, going to `/var/app/current/node_modules`, and seeing that the devDependencies weren't there.
+ 1. EBS wasn’t installing the `devDependencies` so I moved everything to `dependencies` in the `package.json` . This isn't correct but I couldn't figure out any other way to get it to install all the dependencies. I verified this was happening by sshing into the box, going to `/var/app/current/node_modules`, and seeing that the devDependencies weren't there.
 
  2. The the order EBS tries to run your code is `node app.js`, followed by `node server.js`, and finally `npm run start`. I was trying to run my code with `npm run start:prod` but had a file name `server.js` in the root, so EBS was running the wrong server due to the execution order
 
