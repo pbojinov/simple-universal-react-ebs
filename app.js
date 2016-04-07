@@ -1,3 +1,4 @@
+// https://github.com/gulpjs/gulp/issues/1359#issuecomment-153452461
 require('babel-core/register');
 // require('babel-core').transform('code', {
 //   presets: ['stage-0', 'react', 'es2015']
@@ -24,7 +25,7 @@ server.listen(port, 'localhost', (err) => {
   if (err) {
     console.error(err);
   }
-  console.info(`==> 🌎 Listening on port %s. Open up http://localhost:${port}/ in your browser.`);
+  console.info(`==> 🌎 Listening on port ${port}. Open up http://localhost:${port}/ in your browser.`);
   if (!process.env.IS_EBS) {
     open(`http://localhost:${port}`);
   }
