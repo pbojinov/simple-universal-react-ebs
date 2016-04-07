@@ -35,6 +35,8 @@ Configuration options for `.ebextensions`
 
 http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html
 
+http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html
+
 ### ENV variables
 
 http://stackoverflow.com/questions/11211007/how-do-you-pass-custom-environment-variable-on-amazon-elastic-beanstalk-aws-ebs/14491294#14491294
