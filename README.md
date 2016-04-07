@@ -58,6 +58,8 @@ or `eb deploy --timeout 1800`
 
 By the way the maximum timeout is half an hour, so 30 minutes * 60 seconds === 1800 seconds
 
+Thanks to http://stackoverflow.com/questions/25557874/elastic-beanstalk-deployment-taking-longer-than-timeout-period-how-do-i-increas for this one.
+
 ## Some Gotchas
 
  1. EBS wasn’t installing the `devDependencies` so I moved everything to `dependencies` in the `package.json` . This isn't correct but I couldn't figure out any other way to get it to install all the dependencies. I verified this was happening by sshing into the box, going to `/var/app/current/node_modules`, and seeing that the devDependencies weren't there.
