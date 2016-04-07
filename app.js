@@ -7,7 +7,6 @@ const open = require('open');
 const http = require('http');
 const fs = require('fs');
 const express = require('express');
-const renderComponentWithRoot = require('./blue');
 
 const port = process.env.PORT || 3000;
 const html = fs.readFileSync('index.html');
