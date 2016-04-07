@@ -1,0 +1,9 @@
+body {
+    background-color: black;
+}
+div {
+    color: white;
+    position: relative;
+    font-size: 10vw;
+    font-family: monospace;
+}

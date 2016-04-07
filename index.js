@@ -5,17 +5,20 @@ require('babel-core/register');
 // });
 
 const open = require('open');
+const path = require('path');
 const http = require('http');
 const fs = require('fs');
 const express = require('express');
 
 const port = process.env.PORT || 3000;
 const html = fs.readFileSync('index.html');
-const server = express();
+const app = express();
 
-server.get('*', require('./src').serverMiddleware);
+app.use(express.static(path.join(__dirname, 'public')));
 
-server.listen(port, 'localhost', (err) => {
+app.get('/', require('./src').serverMiddleware);
+
+app.listen(port, 'localhost', (err) => {
   if (err) {
     console.error(err);
   }

@@ -4,7 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 class HelloWorld extends React.Component {
   render() {
-    const now = (new Date()).toTimeString()
+    const now = (new Date()).toTimeString();
     return (
       <div>Hello World from SSR Component at {now}</div>
       );
@@ -13,7 +13,15 @@ class HelloWorld extends React.Component {
 
 function renderComponentWithRoot() {
   const componentHtml = renderToStaticMarkup(<HelloWorld/>);
-  return `<!doctype html><body>${componentHtml}</body></html>`;
+  return `
+    <!doctype html>
+        <head>
+            <link rel="stylesheet" type="text/css" href="/css/base.css" />
+        </head>
+        <body>
+            ${componentHtml}
+        </body>
+    </html>`;
 }
 
 function handleRoute(req, res) {
