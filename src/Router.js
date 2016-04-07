@@ -4,8 +4,9 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 class HelloWorld extends React.Component {
   render() {
+    const now = (new Date()).toTimeString()
     return (
-      <div>Hello World from SSR Component</div>
+      <div>Hello World from SSR Component at {now}</div>
       );
   }
 }
