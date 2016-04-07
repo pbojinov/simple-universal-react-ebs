@@ -13,12 +13,6 @@ const port = process.env.PORT || 3000;
 const html = fs.readFileSync('index.html');
 const server = express();
 
-// server.get('/', function(req, res) {
-//   const markup = renderComponentWithRoot();
-//   console.log(markup);
-//   res.status(200).send(markup);
-// });
-
 server.get('*', require('./src').serverMiddleware);
 
 server.listen(port, 'localhost', (err) => {
